@@ -102,8 +102,7 @@ function layoutBelow660(width) {
   return {
     ...fvLayout660,
     bgWidthPx: imageWidth,
-    bgLeftPx: imageLeft,
-    bgTopPx: 720 * (fvLayout660.bgTopPercent / 100)
+    bgLeftPx: imageLeft
   };
 }
 
@@ -123,7 +122,7 @@ function applyFvLiquidLayout() {
   if (width <= 660) {
     setPx(root, "--fv-sp-bg-width", values.bgWidthPx);
     setPx(root, "--fv-sp-bg-left", values.bgLeftPx);
-    setPx(root, "--fv-sp-bg-top", values.bgTopPx);
+    setPercent(root, "--fv-sp-bg-top", values.bgTopPercent);
   } else {
     setPercent(root, "--fv-sp-bg-width", values.bgWidth);
     setPercent(root, "--fv-sp-bg-left", values.bgLeft);
