@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 本番公開時: Sitemap の URL を公開ドメインに合わせて更新してください
+Sitemap: https://shinronavi.com/sitemap.xml

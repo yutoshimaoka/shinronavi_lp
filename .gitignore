@@ -1,0 +1,10 @@
+.DS_Store
+*.md
+.vscode/
+node_modules/
+components/
+patterns/
+foundations/
+design/
+package.json
+package-lock.json
