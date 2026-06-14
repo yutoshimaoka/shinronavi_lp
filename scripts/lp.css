@@ -456,9 +456,9 @@ img {
   }
 
   .fv__inner {
-    min-height: 720px;
+    min-height: var(--fv-height);
     width: 100%;
-    padding: var(--fv-sp-pad-top, 20px) var(--fv-sp-pad-x, 20px) var(--fv-sp-pad-bottom, 20px);
+    padding: var(--fv-sp-pad-top, 20px) var(--fv-sp-pad-x, 20px) var(--fv-sp-pad-bottom, 40px);
     gap: var(--fv-sp-gap, 20px);
   }
 
@@ -531,7 +531,7 @@ img {
   .fv__cta {
     position: absolute;
     right: 20px;
-    bottom: var(--fv-cta-bottom, 40px);
+    bottom: 40px;
     left: 20px;
     width: auto;
     min-height: 64px;

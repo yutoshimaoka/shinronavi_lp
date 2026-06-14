@@ -15,7 +15,7 @@ const fvLayout660 = {
   shadowColor: "#005085",
   padX: 20,
   padTop: 20,
-  padBottom: 20,
+  padBottom: 40,
   gap: 20
 };
 
@@ -37,7 +37,7 @@ const fvBreakpointsHigh = [
     shadowColor: "#0880c2",
     padX: 40,
     padTop: 40,
-    padBottom: 20,
+    padBottom: 40,
     gap: 40
   },
   {
@@ -57,7 +57,7 @@ const fvBreakpointsHigh = [
     shadowColor: "#0880c2",
     padX: 60,
     padTop: 40,
-    padBottom: 20,
+    padBottom: 40,
     gap: 40
   }
 ];
@@ -108,7 +108,6 @@ function layoutBelow660(width) {
 
 function applyFvLiquidLayout() {
   const width = window.innerWidth;
-  const height = window.innerHeight;
   const root = document.documentElement;
 
   if (width > 767) {
@@ -145,7 +144,6 @@ function applyFvLiquidLayout() {
   setPx(root, "--fv-sp-pad-top", values.padTop);
   setPx(root, "--fv-sp-pad-bottom", values.padBottom);
   setPx(root, "--fv-sp-gap", values.gap);
-  setPx(root, "--fv-cta-bottom", 40 - Math.max(0, height - 720));
 }
 
 applyFvLiquidLayout();
