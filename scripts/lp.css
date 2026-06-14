@@ -540,7 +540,7 @@ img {
   }
 
   .fv__copy {
-    top: var(--fv-copy-top, 484px);
+    top: calc(var(--fv-copy-top, 484px) - 50px);
     left: var(--fv-copy-left, 33px);
     width: var(--fv-copy-width, 279px);
     height: var(--fv-copy-height, 112px);
