@@ -1093,21 +1093,22 @@ img {
 }
 
 .merit-card {
-  overflow: hidden;
   border-radius: 8px;
-  filter: drop-shadow(0 0 12.5px rgba(21, 106, 209, 0.25));
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 12.5px rgba(21, 106, 209, 0.25);
 }
 
 .merit-card img {
   width: 100%;
   height: 160px;
+  border-radius: 8px 8px 0 0;
   object-fit: cover;
 }
 
 .merit-card div {
   min-height: 129px;
   padding: 24px 20px 20px;
-  background: rgba(255, 255, 255, 0.7);
+  background: transparent;
   text-align: center;
 }
 
@@ -1398,6 +1399,11 @@ img {
 
   .merit__cards {
     grid-template-columns: 1fr;
+    padding: 0 4px;
+  }
+
+  .faq__list {
+    padding: 0 4px;
   }
 
   .merit-card img {
@@ -1554,9 +1560,8 @@ img {
 }
 
 .faq-item {
-  overflow: hidden;
   border-radius: 8px;
-  filter: drop-shadow(0 0 12px rgba(0, 60, 190, 0.2));
+  box-shadow: 0 0 12px rgba(0, 60, 190, 0.2);
 }
 
 .faq-item__heading {
