@@ -2,7 +2,7 @@ const fvLayout660 = {
   width: 660,
   bgWidthPercent: 298.3,
   bgLeftPercent: -96.55,
-  bgTopPercent: -31.28,
+  bgTopPercent: -30,
   copyLeft: 45,
   copyTop: 490,
   copyWidth: 320,

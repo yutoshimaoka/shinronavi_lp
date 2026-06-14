@@ -431,7 +431,7 @@ img {
 
   .fv__bg img {
     position: absolute;
-    top: var(--fv-sp-bg-top, -31.04%);
+    top: var(--fv-sp-bg-top, -30%);
     left: var(--fv-sp-bg-left, -214.41%);
     width: var(--fv-sp-bg-width, 500.06%);
     height: auto;
