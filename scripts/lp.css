@@ -307,24 +307,28 @@ img {
 
 .fv__point {
   display: flex;
-  width: 475px;
+  width: fit-content;
   max-width: 100%;
-  height: auto;
-  padding: 16px 12px 20px 22px;
-  align-items: center;
+  height: 100%;
+  padding: 16px 24px 20px 24px;
+  align-items: flex-end;
+  justify-content: flex-start;
   gap: 3px;
   background: rgba(21, 106, 209, 0.9);
   color: var(--color-white);
+  vertical-align: top;
 }
 
 .fv__point-number {
+  width: fit-content;
+  height: fit-content;
   color: var(--color-yellow);
   font-family: var(--font-number);
-  font-size: 132px;
-  font-weight: 400;
+  font-size: 96px;
+  font-weight: 800;
   line-height: 0.78;
-  transform: translateY(20px);
   white-space: nowrap;
+  vertical-align: middle;
 }
 
 .fv__point-text {
@@ -333,7 +337,7 @@ img {
   flex-direction: column;
   gap: 3px;
   font-family: var(--font-senobi);
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 700;
   letter-spacing: -0.2em;
   line-height: 1;
@@ -500,23 +504,20 @@ img {
   }
 
   .fv__point {
-    width: min(326px, 100%);
     max-width: 100%;
-    height: 79px;
-    padding: 8px 8px 8px 14px;
+    padding: 12px 8px 12px 14px;
     gap: 2px;
   }
 
   .fv__point-number {
-    font-size: 88px;
+    font-size: 80px;
     line-height: 0.78;
-    transform: translateY(10px);
   }
 
   .fv__point-text {
     width: auto;
     gap: 2px;
-    font-size: 30px;
+    font-size: 24px;
     letter-spacing: -0.2em;
   }
 
@@ -717,11 +718,12 @@ img {
 
 .prize-card--side {
   display: grid;
-  min-height: 161px;
-  grid-template-columns: 1fr 151px;
+  height: 100%;
+  min-height: 100px;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  gap: 10px;
-  padding: 10px 16px 10px 0;
+  gap: 0;
+  padding: 16px 16px;
 }
 
 .prize-card__rank {
@@ -794,11 +796,11 @@ img {
 }
 
 .prize-card__coin--side {
+  width: fit-content;
   height: 105px;
 }
 
 .prize-card__point {
-  display: flex;
   margin: 0;
   align-items: flex-end;
   justify-content: center;
@@ -822,11 +824,12 @@ img {
 .prize-card__point--first {
   flex-direction: column;
   align-items: center;
-  gap: 0;
+  gap: 16px;
 }
 
 .prize-card__point--first .prize-card__point-number {
   display: block;
+  font-weight: 600;
   background: linear-gradient(
     90deg,
     #156ad1 0%,
@@ -842,8 +845,9 @@ img {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-size: 120px;
+  font-size: 88px;
   line-height: 1;
+  margin-bottom: 12px;
 }
 
 .prize-card--first.is-visible .prize-card__point-number {
@@ -868,13 +872,17 @@ img {
 }
 
 .prize-card__point--side {
+  width: fit-content;
   flex-direction: column;
   align-items: center;
+  gap: 4px;
 }
 
 .prize-card__point--side span {
-  height: 78px;
-  font-size: 90px;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 100%;
+  vertical-align: middle;
 }
 
 .prize-card__point--side small {
@@ -888,7 +896,7 @@ img {
   padding: 16px 24px;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 0;
   border-radius: 8px;
   background: linear-gradient(180deg, #b1daff 0%, #e4f2ff 100%);
 }
@@ -912,20 +920,24 @@ img {
 
 .prize-all__point {
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
   background: linear-gradient(270deg, #156ad1 0%, #01a0d5 100%);
   background-clip: text;
   color: transparent;
   font-size: 28px;
   line-height: 1;
+  vertical-align: middle;
 }
 
 .prize-all__point span {
-  height: 66px;
+  width: fit-content;
+  height: fit-content;
   font-family: var(--font-number);
-  font-size: 90px;
-  font-weight: 400;
+  font-size: 56px;
+  font-weight: 600;
 }
 
 .campaign-block {
@@ -1261,12 +1273,12 @@ img {
   }
 
   .prize-card__point--first {
-    flex-direction: row;
+    flex-direction: column;
     gap: 6px;
   }
 
   .prize-card__point--first .prize-card__point-number {
-    font-size: 72px;
+    font-size: 80px;
   }
 
   .prize-card__point--first small {
@@ -1275,7 +1287,7 @@ img {
   }
 
   .prize-card__point--side span {
-    font-size: 56px;
+    font-size: 48px;
     height: 50px;
   }
 
@@ -1296,6 +1308,7 @@ img {
   .prize-all__point {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 0;
     font-size: 16px;
   }
@@ -1677,7 +1690,7 @@ img {
   }
 
   .fv__point {
-    width: 475px;
+    width: fit-content;
     max-width: none;
   }
 
