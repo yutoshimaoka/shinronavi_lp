@@ -7,7 +7,7 @@
   --color-white: #ffffff;
   --font-base: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   --font-senobi: "Senobi Gothic", var(--font-base);
-  --font-number: "DIN 1451 Std Engschrift", "DIN Condensed", var(--font-base);
+  --font-number: Arial, "Helvetica Neue", Helvetica, sans-serif;
   --fv-height: max(720px, 100svh);
 }
 
@@ -15,14 +15,6 @@
   font-family: "Senobi Gothic";
   src: url("../assets/fonts/Senobi-Gothic-Bold.ttf") format("truetype");
   font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "DIN 1451 Std Engschrift";
-  src: url("../assets/fonts/DINEngschriftStd.otf") format("opentype");
-  font-weight: 400 900;
   font-style: normal;
   font-display: swap;
 }
