@@ -87,6 +87,10 @@ img {
     width: var(--fv-pc-bg-width, 100%);
     height: var(--fv-pc-bg-height, 100%);
   }
+
+  .fv__copy {
+    display: none;
+  }
 }
 
 .fv__bright {

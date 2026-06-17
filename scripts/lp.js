@@ -1,7 +1,7 @@
 /** fv-sp@2x.jpg 上で男性の左肩が左端から占める横位置（0〜1） */
 const FV_SHOULDER_X = 0.583;
 
-/** fv-bg@2x.jpg 上で男性の左肩が左端から占める横位置（0〜1） */
+/** fv-bg@2x.png 上で男性の左肩が左端から占める横位置（0〜1） */
 const FV_PC_SHOULDER_X = 0.807;
 /** 添付参考画像（909px幅）で肩から右端までの余白 25px に合わせる */
 const FV_PC_RIGHT_EDGE_MARGIN = 25 / 909;
