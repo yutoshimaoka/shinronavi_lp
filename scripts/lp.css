@@ -459,6 +459,7 @@ img {
   }
 
   .fv__inner {
+    z-index: 4;
     min-height: var(--fv-height);
     width: 100%;
     padding: var(--fv-sp-pad-top, 20px) var(--fv-sp-pad-x, 20px) var(--fv-sp-pad-bottom, 40px);
@@ -530,6 +531,7 @@ img {
 
   .fv__cta {
     position: absolute;
+    z-index: 5;
     right: 20px;
     bottom: 40px;
     left: 20px;

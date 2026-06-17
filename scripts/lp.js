@@ -9,8 +9,8 @@ const FV_RIGHT_EXTRA_PX = 120;
 const FV_PC_MIN_WIDTH = 768;
 const FV_COPY_CTA_MARGIN = 60;
 const FV_COPY_TOP_CSS_OFFSET = 50;
-const FV_SP_BG_OFFSET_Y = 120;
-const FV_SP_COPY_OFFSET_Y = 40;
+const FV_SP_BG_OFFSET_Y = 100;
+const FV_SP_COPY_OFFSET_Y = 50;
 const FV_SP_MAX_WIDTH = 660;
 
 function shoulderAlignedLeftPercent(bgWidthPercent) {
