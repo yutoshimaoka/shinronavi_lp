@@ -451,7 +451,7 @@ img {
     object-position: left bottom;
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 420px) {
     .fv__bg img {
       right: 0;
       bottom: 0;
@@ -644,28 +644,8 @@ img {
   height: 64px;
   align-items: center;
   justify-content: center;
-  background: var(--color-primary);
+  background: url("../assets/campaign/section-ribbon@2x.png") center / 100% 100% no-repeat;
   color: #fafcff;
-}
-
-.section-ribbon::before,
-.section-ribbon::after {
-  position: absolute;
-  top: 0;
-  width: 30px;
-  height: 64px;
-  background: #e8f4ff;
-  content: "";
-}
-
-.section-ribbon::before {
-  left: 0;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-.section-ribbon::after {
-  right: 0;
-  clip-path: polygon(100% 0, 0 50%, 100% 100%);
 }
 
 .section-ribbon__text {

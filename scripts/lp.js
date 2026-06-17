@@ -12,6 +12,7 @@ const FV_COPY_TOP_CSS_OFFSET = 50;
 const FV_SP_BG_OFFSET_Y = 100;
 const FV_SP_COPY_OFFSET_Y = 50;
 const FV_SP_MAX_WIDTH = 660;
+const FV_DEDICATED_BG_MAX_WIDTH = 420;
 
 function shoulderAlignedLeftPercent(bgWidthPercent) {
   return 100 - FV_SHOULDER_X * bgWidthPercent;
@@ -271,12 +272,12 @@ function applyFvLiquidLayout() {
   }
 
   clearFvPcBgVars(root);
-  if (width > 390) {
+  if (width > FV_DEDICATED_BG_MAX_WIDTH) {
     setPx(root, "--fv-sp-bg-right-extra", FV_RIGHT_EXTRA_PX);
   } else {
     root.style.removeProperty("--fv-sp-bg-right-extra");
   }
-  if (width <= FV_SP_MAX_WIDTH && width > 390) {
+  if (width <= FV_SP_MAX_WIDTH && width > FV_DEDICATED_BG_MAX_WIDTH) {
     setPx(root, "--fv-sp-bg-offset-y", FV_SP_BG_OFFSET_Y);
   } else {
     root.style.removeProperty("--fv-sp-bg-offset-y");
@@ -293,7 +294,7 @@ function applyFvLiquidLayout() {
   }
 
   if (width <= 660) {
-    if (width > 390) {
+    if (width > FV_DEDICATED_BG_MAX_WIDTH) {
       values.bgLeftPercent = shoulderAlignedLeftPercent(values.bgWidthPercent);
       setPercent(root, "--fv-sp-bg-width", values.bgWidthPercent);
       setPercent(root, "--fv-sp-bg-left", values.bgLeftPercent);
