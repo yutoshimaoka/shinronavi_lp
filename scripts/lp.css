@@ -333,7 +333,8 @@ img {
   color: var(--color-yellow);
   font-family: var(--font-number);
   font-size: 96px;
-  font-weight: 800;
+  font-weight: 600;
+  letter-spacing: -2.1px;
   line-height: 0.78;
   white-space: nowrap;
   vertical-align: middle;
@@ -518,7 +519,7 @@ img {
   }
 
   .fv__point-number {
-    font-size: 80px;
+    font-size: 78px;
     line-height: 0.78;
   }
 
@@ -527,6 +528,10 @@ img {
     gap: 2px;
     font-size: 24px;
     letter-spacing: -0.2em;
+  }
+
+  .fv__point-text span:first-child {
+    letter-spacing: -5.8px;
   }
 
   .fv__cta {
