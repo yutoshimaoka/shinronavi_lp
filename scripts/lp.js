@@ -271,8 +271,12 @@ function applyFvLiquidLayout() {
   }
 
   clearFvPcBgVars(root);
-  setPx(root, "--fv-sp-bg-right-extra", FV_RIGHT_EXTRA_PX);
-  if (width <= FV_SP_MAX_WIDTH) {
+  if (width > 390) {
+    setPx(root, "--fv-sp-bg-right-extra", FV_RIGHT_EXTRA_PX);
+  } else {
+    root.style.removeProperty("--fv-sp-bg-right-extra");
+  }
+  if (width <= FV_SP_MAX_WIDTH && width > 390) {
     setPx(root, "--fv-sp-bg-offset-y", FV_SP_BG_OFFSET_Y);
   } else {
     root.style.removeProperty("--fv-sp-bg-offset-y");
@@ -289,9 +293,14 @@ function applyFvLiquidLayout() {
   }
 
   if (width <= 660) {
-    values.bgLeftPercent = shoulderAlignedLeftPercent(values.bgWidthPercent);
-    setPercent(root, "--fv-sp-bg-width", values.bgWidthPercent);
-    setPercent(root, "--fv-sp-bg-left", values.bgLeftPercent);
+    if (width > 390) {
+      values.bgLeftPercent = shoulderAlignedLeftPercent(values.bgWidthPercent);
+      setPercent(root, "--fv-sp-bg-width", values.bgWidthPercent);
+      setPercent(root, "--fv-sp-bg-left", values.bgLeftPercent);
+    } else {
+      root.style.removeProperty("--fv-sp-bg-width");
+      root.style.removeProperty("--fv-sp-bg-left");
+    }
   } else {
     values.bgLeft = shoulderAlignedLeftPercent(values.bgWidth);
     setPercent(root, "--fv-sp-bg-width", values.bgWidth);

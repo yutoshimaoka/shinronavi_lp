@@ -447,6 +447,22 @@ img {
     object-position: left bottom;
   }
 
+  @media (max-width: 390px) {
+    .fv__bg img {
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center bottom;
+    }
+
+    .fv__copy {
+      display: none;
+    }
+  }
+
   .fv__bright--pc {
     display: none;
   }
