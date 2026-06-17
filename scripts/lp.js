@@ -1,14 +1,140 @@
+/** fv-sp@2x.jpg 上で男性の左肩が左端から占める横位置（0〜1） */
+const FV_SHOULDER_X = 0.583;
+
+/** fv-bg@2x.jpg 上で男性の左肩が左端から占める横位置（0〜1） */
+const FV_PC_SHOULDER_X = 0.807;
+/** 添付参考画像（909px幅）で肩から右端までの余白 25px に合わせる */
+const FV_PC_RIGHT_EDGE_MARGIN = 25 / 909;
+const FV_RIGHT_EXTRA_PX = 120;
+const FV_PC_MIN_WIDTH = 768;
+const FV_COPY_CTA_MARGIN = 60;
+const FV_COPY_TOP_CSS_OFFSET = 50;
+
+function shoulderAlignedLeftPercent(bgWidthPercent) {
+  return 100 - FV_SHOULDER_X * bgWidthPercent;
+}
+
+function clearFvPcBgVars(root) {
+  root.style.removeProperty("--fv-pc-bg-width");
+  root.style.removeProperty("--fv-pc-bg-height");
+  root.style.removeProperty("--fv-pc-bg-left");
+  root.style.removeProperty("--fv-pc-bg-top");
+}
+
+function applyFvPcBgLayout() {
+  const width = window.innerWidth;
+  const root = document.documentElement;
+
+  if (width < FV_PC_MIN_WIDTH) {
+    clearFvPcBgVars(root);
+    return;
+  }
+
+  const fv = document.querySelector(".fv");
+  const bgImg = document.querySelector(".fv__bg img");
+  if (!fv || !bgImg || !bgImg.naturalWidth) {
+    return;
+  }
+
+  const viewportWidth = fv.clientWidth;
+  const viewportHeight = fv.clientHeight;
+  const imageWidth = bgImg.naturalWidth;
+  const imageHeight = bgImg.naturalHeight;
+  const scale = Math.max(viewportWidth / imageWidth, viewportHeight / imageHeight);
+  const displayWidth = scale * imageWidth;
+  const displayHeight = scale * imageHeight;
+  const rightEdgeFraction = FV_PC_SHOULDER_X + FV_PC_RIGHT_EDGE_MARGIN;
+  const rightLockWidth = rightEdgeFraction * displayWidth + FV_RIGHT_EXTRA_PX;
+  const left = viewportWidth >= rightLockWidth
+    ? 0
+    : viewportWidth - rightLockWidth;
+  const top = viewportHeight - displayHeight;
+
+  root.style.setProperty("--fv-pc-bg-width", `${displayWidth}px`);
+  root.style.setProperty("--fv-pc-bg-height", `${displayHeight}px`);
+  root.style.setProperty("--fv-pc-bg-left", `${left}px`);
+  root.style.setProperty("--fv-pc-bg-top", `${top}px`);
+}
+
+const fvCopyBreakpoints = [
+  {
+    width: 661,
+    copyLeft: 58,
+    copyTop: 532,
+    copyWidth: 390,
+    copyHeight: 162,
+    shadowLeft: 42,
+    shadowTop: 528,
+    shadowWidth: 336,
+    shadowHeight: 115,
+    shadowOpacity: 0.6,
+    shadowColor: "#0880c2"
+  },
+  {
+    width: 767,
+    copyLeft: 84,
+    copyTop: 528,
+    copyWidth: 400,
+    copyHeight: 166,
+    shadowLeft: 66,
+    shadowTop: 524,
+    shadowWidth: 278.462,
+    shadowHeight: 115.017,
+    shadowOpacity: 0.6,
+    shadowColor: "#0880c2"
+  }
+];
+
+function applyFvCopyLayout(values, width) {
+  const copyValues = width < 661
+    ? fvCopyBreakpoints[0]
+    : interpolate(fvCopyBreakpoints, width);
+  values.copyLeft = copyValues.copyLeft;
+  values.copyTop = copyValues.copyTop;
+  values.copyWidth = copyValues.copyWidth;
+  values.copyHeight = copyValues.copyHeight;
+  values.shadowLeft = copyValues.shadowLeft;
+  values.shadowTop = copyValues.shadowTop;
+  values.shadowWidth = copyValues.shadowWidth;
+  values.shadowHeight = copyValues.shadowHeight;
+  values.shadowOpacity = copyValues.shadowOpacity;
+  values.shadowColor = copyValues.shadowColor;
+}
+
+const fvLayout390 = {
+  width: 390,
+  bgWidthPercent: 500.06,
+  bgLeftPercent: -235,
+  bgTopPercent: -31.04,
+  bgHeightPercent: 131.04,
+  copyLeft: 33,
+  copyTop: 560,
+  copyWidth: 279,
+  copyHeight: 112,
+  shadowLeft: 30,
+  shadowTop: 555,
+  shadowWidth: 310,
+  shadowHeight: 115,
+  shadowOpacity: 0.6,
+  shadowColor: "#0070bb",
+  padX: 20,
+  padTop: 20,
+  padBottom: 40,
+  gap: 20
+};
+
 const fvLayout660 = {
   width: 660,
   bgWidthPercent: 298.3,
-  bgLeftPercent: -96.55,
-  bgTopPercent: -30,
-  copyLeft: 45,
-  copyTop: 490,
-  copyWidth: 320,
-  copyHeight: 134,
-  shadowLeft: 34,
-  shadowTop: 522,
+  bgLeftPercent: -112,
+  bgTopPercent: -31.28,
+  bgHeightPercent: 131.28,
+  copyLeft: 33,
+  copyTop: 553,
+  copyWidth: 279,
+  copyHeight: 112,
+  shadowLeft: 30,
+  shadowTop: 548,
   shadowWidth: 336,
   shadowHeight: 115,
   shadowOpacity: 0.8,
@@ -23,14 +149,14 @@ const fvBreakpointsHigh = [
   {
     width: 661,
     bgWidth: 323.88,
-    bgLeft: -113.71,
+    bgLeft: -128,
     bgTop: -42.54,
     copyLeft: 58,
-    copyTop: 456,
+    copyTop: 532,
     copyWidth: 390,
     copyHeight: 162,
     shadowLeft: 42,
-    shadowTop: 452,
+    shadowTop: 528,
     shadowWidth: 336,
     shadowHeight: 115,
     shadowOpacity: 0.6,
@@ -43,14 +169,14 @@ const fvBreakpointsHigh = [
   {
     width: 767,
     bgWidth: 278.23,
-    bgLeft: -89.12,
+    bgLeft: -102,
     bgTop: -42.3,
     copyLeft: 84,
-    copyTop: 452,
+    copyTop: 528,
     copyWidth: 400,
     copyHeight: 166,
     shadowLeft: 66,
-    shadowTop: 448,
+    shadowTop: 524,
     shadowWidth: 278.462,
     shadowHeight: 115.017,
     shadowOpacity: 0.6,
@@ -94,16 +220,38 @@ function setPercent(root, name, value) {
 }
 
 function layoutBelow660(width) {
-  const imageWidth = fvLayout660.width * (fvLayout660.bgWidthPercent / 100);
-  const imageLeftBase = width - (fvLayout660.width - (fvLayout660.width * (fvLayout660.bgLeftPercent / 100)));
-  const imageRightCorrection = Math.min(52, Math.max(0, (fvLayout660.width - width) * 0.65));
-  const imageLeft = imageLeftBase + imageRightCorrection;
+  const clampedWidth = Math.max(fvLayout390.width, Math.min(fvLayout660.width, width));
+  const progress = (clampedWidth - fvLayout390.width) / (fvLayout660.width - fvLayout390.width);
+  const result = { shadowColor: progress < 0.5 ? fvLayout390.shadowColor : fvLayout660.shadowColor };
 
-  return {
-    ...fvLayout660,
-    bgWidthPx: imageWidth,
-    bgLeftPx: imageLeft
-  };
+  for (const key of Object.keys(fvLayout390)) {
+    if (typeof fvLayout390[key] === "number") {
+      result[key] = lerp(fvLayout390[key], fvLayout660[key], progress);
+    }
+  }
+
+  return result;
+}
+
+function applyFvCopyCtaMargin(root, values) {
+  if (window.innerWidth > 767) {
+    return;
+  }
+
+  requestAnimationFrame(() => {
+    const fv = document.querySelector(".fv");
+    const cta = document.querySelector(".fv__cta");
+    if (!fv || !cta) {
+      return;
+    }
+
+    const ctaTop = cta.getBoundingClientRect().top - fv.getBoundingClientRect().top;
+    const maxCopyTop = ctaTop - FV_COPY_CTA_MARGIN - values.copyHeight + FV_COPY_TOP_CSS_OFFSET;
+    const copyTop = Math.min(values.copyTop, maxCopyTop);
+
+    setPx(root, "--fv-copy-top", copyTop);
+    setPx(root, "--fv-copy-shadow-offset-top", values.shadowTop - copyTop);
+  });
 }
 
 function applyFvLiquidLayout() {
@@ -111,21 +259,31 @@ function applyFvLiquidLayout() {
   const root = document.documentElement;
 
   if (width > 767) {
+    root.style.removeProperty("--fv-sp-bg-width");
+    root.style.removeProperty("--fv-sp-bg-left");
+    root.style.removeProperty("--fv-sp-bg-right-extra");
+    applyFvPcBgLayout();
     return;
   }
+
+  clearFvPcBgVars(root);
+  setPx(root, "--fv-sp-bg-right-extra", FV_RIGHT_EXTRA_PX);
 
   const values = width <= 660
     ? layoutBelow660(width)
     : interpolate(fvBreakpointsHigh, width);
 
+  applyFvCopyLayout(values, width);
+
   if (width <= 660) {
-    setPx(root, "--fv-sp-bg-width", values.bgWidthPx);
-    setPx(root, "--fv-sp-bg-left", values.bgLeftPx);
-    setPercent(root, "--fv-sp-bg-top", values.bgTopPercent);
+    values.bgLeftPercent = shoulderAlignedLeftPercent(values.bgWidthPercent);
+    setPercent(root, "--fv-sp-bg-width", values.bgWidthPercent);
+    setPercent(root, "--fv-sp-bg-left", values.bgLeftPercent);
   } else {
+    values.bgLeft = shoulderAlignedLeftPercent(values.bgWidth);
     setPercent(root, "--fv-sp-bg-width", values.bgWidth);
     setPercent(root, "--fv-sp-bg-left", values.bgLeft);
-    setPercent(root, "--fv-sp-bg-top", values.bgTop);
+    root.style.removeProperty("--fv-sp-bg-height");
   }
 
   setPx(root, "--fv-copy-left", values.copyLeft);
@@ -144,10 +302,21 @@ function applyFvLiquidLayout() {
   setPx(root, "--fv-sp-pad-top", values.padTop);
   setPx(root, "--fv-sp-pad-bottom", values.padBottom);
   setPx(root, "--fv-sp-gap", values.gap);
+
+  applyFvCopyCtaMargin(root, values);
 }
 
 applyFvLiquidLayout();
 window.addEventListener("resize", applyFvLiquidLayout);
+
+const fvBgImg = document.querySelector(".fv__bg img");
+if (fvBgImg) {
+  if (fvBgImg.complete) {
+    applyFvPcBgLayout();
+  } else {
+    fvBgImg.addEventListener("load", applyFvPcBgLayout);
+  }
+}
 
 function initFaqAccordion() {
   document.querySelectorAll(".faq-item").forEach((item) => {
