@@ -9,7 +9,6 @@
   --font-senobi: "Senobi Gothic", var(--font-base);
   --font-number: Arial, "Helvetica Neue", Helvetica, sans-serif;
   --fv-height: max(720px, 100svh);
-  --fv-bg-offset-y: 80px;
 }
 
 @font-face {
@@ -83,7 +82,7 @@ img {
 
 @media (min-width: 768px) {
   .fv__bg img {
-    top: calc(var(--fv-pc-bg-top, 0) + var(--fv-bg-offset-y));
+    top: var(--fv-pc-bg-top, 0);
     left: var(--fv-pc-bg-left, 0);
     width: var(--fv-pc-bg-width, 100%);
     height: var(--fv-pc-bg-height, 100%);
@@ -437,6 +436,7 @@ img {
 @media (max-width: 767px) {
   .fv {
     min-height: var(--fv-height);
+    --fv-bg-offset-y: 80px;
   }
 
   .fv__bg img {
@@ -645,7 +645,7 @@ img {
   height: 64px;
   align-items: center;
   justify-content: center;
-  background: url("../assets/campaign/section-ribbon@2x.png") center / 100% 100% no-repeat;
+  background: url("../assets/campaign/section-ribbon@2x.webp") center / 100% 100% no-repeat;
   color: #fafcff;
 }
 
