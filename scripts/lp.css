@@ -9,6 +9,7 @@
   --font-senobi: "Senobi Gothic", var(--font-base);
   --font-number: Arial, "Helvetica Neue", Helvetica, sans-serif;
   --fv-height: max(720px, 100svh);
+  --fv-bg-offset-y: 80px;
 }
 
 @font-face {
@@ -82,7 +83,7 @@ img {
 
 @media (min-width: 768px) {
   .fv__bg img {
-    top: var(--fv-pc-bg-top, 0);
+    top: calc(var(--fv-pc-bg-top, 0) + var(--fv-bg-offset-y));
     left: var(--fv-pc-bg-left, 0);
     width: var(--fv-pc-bg-width, 100%);
     height: var(--fv-pc-bg-height, 100%);
@@ -441,7 +442,7 @@ img {
   .fv__bg img {
     position: absolute;
     top: auto;
-    bottom: calc(0px - var(--fv-sp-bg-offset-y, 0px));
+    bottom: calc(0px - var(--fv-sp-bg-offset-y, 0px) - var(--fv-bg-offset-y));
     left: calc(var(--fv-sp-bg-left, -191.5%) - var(--fv-sp-bg-right-extra, 0px));
     width: var(--fv-sp-bg-width, 500.06%);
     height: auto;
@@ -454,7 +455,7 @@ img {
   @media (max-width: 420px) {
     .fv__bg img {
       right: 0;
-      bottom: 0;
+      bottom: calc(0px - var(--fv-bg-offset-y));
       left: 0;
       width: 100%;
       height: auto;
@@ -1510,7 +1511,7 @@ img {
   color: #000;
   font-size: 14px;
   line-height: 1.5;
-  text-align: center;
+  text-align: left;
 }
 
 .gaiyo__intro p,
