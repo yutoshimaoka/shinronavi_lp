@@ -334,7 +334,7 @@ img {
 .fv__point-number {
   width: fit-content;
   height: fit-content;
-  color: var(--color-white);
+  color: var(--color-yellow);
   font-family: var(--font-number);
   font-size: 96px;
   font-weight: 600;
@@ -358,7 +358,7 @@ img {
 }
 
 .fv__point-text span:first-child {
-  color: var(--color-white);
+  color: var(--color-yellow);
 }
 
 .fv__cta {
@@ -370,7 +370,7 @@ img {
   justify-content: center;
   gap: 16px;
   border-radius: 8px;
-  background: #a85800;
+  background: var(--color-accent);
   color: var(--color-white);
   font-size: 18px;
   font-weight: 800;
